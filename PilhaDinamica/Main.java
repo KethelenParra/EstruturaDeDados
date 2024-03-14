@@ -1,6 +1,7 @@
 package PilhaDinamica;
 
 public class Main {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public static void main(String[] args) {
         
         PilhaDinamica p = new PilhaDinamica();
