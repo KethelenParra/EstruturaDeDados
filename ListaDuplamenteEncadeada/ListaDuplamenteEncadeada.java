@@ -35,10 +35,10 @@ class ListaDuplamenteEncadeada {
             ultimo.proximo = novoNo;
             novoNo.anterior = ultimo;
             ultimo = novoNo;
+            tamanho++;
         } else {
             inserirMeio(elemento);
         }
-        tamanho++;
     }
 
     public void inserirMeio(int elemento) {
@@ -60,13 +60,13 @@ class ListaDuplamenteEncadeada {
             novoNo.anterior = atual.anterior;
             atual.anterior.proximo = novoNo;
             atual.anterior = novoNo;
+            tamanho++;
         }
-        tamanho++;
     }
 
     public int removerInicio() {
         if (primeiro == null) {
-            return -1; // Lista vazia
+            return -1; 
         }
         int elementoRemovido = primeiro.elemento;
         if (primeiro == ultimo) {
@@ -79,16 +79,12 @@ class ListaDuplamenteEncadeada {
             }
         }
         tamanho--;
-        if (tamanho == 0) { // Ajuste para quando há apenas um elemento na lista
-            primeiro = null;
-            ultimo = null;
-        }
         return elementoRemovido;
     }
     
     public int removerFim() {
         if (ultimo == null) {
-            return -1; // Lista vazia
+            return -1; 
         }
         int elementoRemovido = ultimo.elemento;
         if (primeiro == ultimo) {
@@ -101,16 +97,12 @@ class ListaDuplamenteEncadeada {
             }
         }
         tamanho--;
-        if (tamanho == 0) { // Ajuste para quando há apenas um elemento na lista
-            primeiro = null;
-            ultimo = null;
-        }
         return elementoRemovido;
     }
-
+    
     public int removerMeio(int elemento) {
         if (primeiro == null) {
-            return -1; // Lista vazia
+            return -1; 
         }
         if (primeiro.elemento == elemento) {
             return removerInicio();
@@ -123,7 +115,7 @@ class ListaDuplamenteEncadeada {
             atual = atual.proximo;
         }
         if (atual == null) {
-            return -1; // Elemento não encontrado
+            return -1; 
         }
         atual.anterior.proximo = atual.proximo;
         atual.proximo.anterior = atual.anterior;
