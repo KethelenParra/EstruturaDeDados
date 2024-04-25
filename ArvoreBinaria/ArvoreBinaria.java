@@ -60,4 +60,53 @@ public class ArvoreBinaria {
         }
         System.out.print(" " + noArvore.elemento);
     }
+
+    public No buscaNo(int elemento){
+        No noAtual = noRaiz;
+        while (noAtual != null && noAtual.elemento != elemento) {
+            if (elemento < noAtual.elemento) {
+                noAtual = noAtual.esquerda;
+            } else {
+                noAtual = noAtual.direita;
+            }
+        }
+        return noAtual;
+    }
+    
+    public void removerNo(int elemento) {
+        this.noRaiz = remover(this.noRaiz, elemento);
+    }
+
+    private No remover(No raiz, int elemento) {
+        if (raiz == null) {
+            return raiz;
+        }
+
+        if (elemento < raiz.elemento) {
+            raiz.esquerda = remover(raiz.esquerda, elemento);
+        } else if (elemento > raiz.elemento) {
+            raiz.direita = remover(raiz.direita, elemento);
+        } else {
+            // Nó com um único filho ou nenhum filho
+            if (raiz.esquerda == null) {
+                return raiz.direita;
+            } else if (raiz.direita == null) {
+                return raiz.esquerda;
+            }
+
+            // Nó com dois filhos: encontre o nó sucessor e substitua
+            raiz.elemento = encontrarMenor(raiz.direita);
+            raiz.direita = remover(raiz.direita, raiz.elemento);
+        }
+        return raiz;
+    }
+
+    private int encontrarMenor(No raiz) {
+        int menor = raiz.elemento;
+        while (raiz.esquerda != null) {
+            menor = raiz.esquerda.elemento;
+            raiz = raiz.esquerda;
+        }
+        return menor;
+    }
 }
