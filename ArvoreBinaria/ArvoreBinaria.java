@@ -109,4 +109,30 @@ public class ArvoreBinaria {
         }
         return menor;
     }
+    public void altura(){
+        if(this.noRaiz == null)
+           System.out.println("Arvore não possui no");    
+         else
+           {        
+            int r = alturaArvore(this.noRaiz);
+            System.out.println("Altura da arvore: " + r);
+           }
+
+    }
+
+    private int alturaArvore(No noRaiz){
+        if(noRaiz == null){
+            return -1;
+        }
+        else{
+            int e = alturaArvore(noRaiz.esquerda);
+            int d = alturaArvore(noRaiz.direita);
+
+            if(e < d){
+                return d + 1;
+            }else{
+                return e + 1;
+            }
+        }
+    }
 }

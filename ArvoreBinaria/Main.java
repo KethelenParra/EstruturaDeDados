@@ -3,13 +3,13 @@ package ArvoreBinaria;
 public class Main {
     public static void main(String[] args) {
         ArvoreBinaria arvore = new ArvoreBinaria();
+
         arvore.inserirNo(arvore.noRaiz, 5);
         arvore.inserirNo(arvore.noRaiz, 3);
         arvore.inserirNo(arvore.noRaiz, 2);
         arvore.inserirNo(arvore.noRaiz, 4);
         arvore.inserirNo(arvore.noRaiz, 7);
         arvore.inserirNo(arvore.noRaiz, 8);
-        arvore.inserirNo(arvore.noRaiz, 6);
         arvore.inserirNo(arvore.noRaiz, 9);
 
         System.out.println("Em-Ordem");
@@ -28,6 +28,9 @@ public class Main {
 
         System.out.println("Em-Ordem");
         arvore.emOrdem(arvore.noRaiz);
+
+        System.out.println();
+        arvore.altura();
         
     }
 }
